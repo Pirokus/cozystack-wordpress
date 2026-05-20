@@ -16,6 +16,8 @@ spec:
   values:
     replicaCount: {{ .Values.replicas }}
     wordpressPassword: {{ .Values.password }}
+    service:
+      type: ClusterIP
     ingress:
       enabled: true
       hostname: {{ .Values.host }}
