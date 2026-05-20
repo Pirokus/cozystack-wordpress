@@ -1,0 +1,12 @@
+host: ""
+replicas: 1
+password: "changeme"
+
+wordpress:
+  replicaCount: 1
+  wordpressPassword: "changeme"
+  service:
+    type: ClusterIP
+  ingress:
+    enabled: true
+    hostname: ""

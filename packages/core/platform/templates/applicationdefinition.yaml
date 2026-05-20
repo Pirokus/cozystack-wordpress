@@ -1,0 +1,26 @@
+apiVersion: cozystack.io/v1alpha1
+kind: ApplicationDefinition
+metadata:
+  name: wordpress
+spec:
+  application:
+    kind: Wordpress
+    singular: wordpress
+    plural: wordpresses
+    openAPISchema: '{"title":"Chart Values","type":"object","properties":{"host":{"type":"string","description":"Hostname for WordPress"},"replicas":{"type":"integer","default":1,"description":"Number of replicas"},"password":{"type":"string","description":"WordPress admin password"}}}'
+  release:
+    chartRef:
+      kind: HelmChart
+      name: external-apps-wordpress
+      namespace: cozy-public
+    labels:
+      cozystack.io/ui: "true"
+    prefix: wordpress-
+  dashboard:
+    category: PaaS
+    singular: WordPress
+    plural: WordPresses
+    description: Managed WordPress service
+    tags:
+      - cms
+      - php
